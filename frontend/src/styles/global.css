@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body, #root {
+    width: 100%;
+    min-height: 100vh;
+    background: #03070F;
+    color: #C8D8E8;
+  }
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #080F1E; }
+  ::-webkit-scrollbar-thumb { background: #1E3050; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #F4721E; }
+}
+
+@layer components {
+  .font-orbitron { font-family: 'Orbitron', sans-serif; }
+  .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+
+  .panel {
+    background: #070E1C;
+    border: 1px solid #162035;
+    border-radius: 6px;
+  }
+
+  .panel-header {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #7A9ABB;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    border-bottom: 1px solid #162035;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .panel-header::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #F4721E;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .stat-card {
+    background: #050B17;
+    border: 1px solid #162035;
+    border-radius: 4px;
+    padding: 10px 12px;
+  }
+
+  .stat-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #7A9ABB;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .stat-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #F4721E;
+    line-height: 1.1;
+  }
+
+  .stat-unit {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #5A7A9A;
+    margin-top: 1px;
+  }
+
+  /* INPUT ROW — always shows value on right */
+  .input-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 58px 30px;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-bottom: 1px solid #0A1220;
+  }
+
+  .input-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #7A9ABB;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .input-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 3px;
+    background: #162035;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .input-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #F4721E;
+    cursor: pointer;
+    border: 2px solid #03070F;
+    box-shadow: 0 0 5px rgba(244,114,30,0.5);
+    transition: box-shadow 0.2s;
+  }
+
+  .input-slider::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 10px rgba(244,114,30,0.9);
+  }
+
+  .input-number {
+    background: #050B17;
+    border: 1px solid #1E3050;
+    border-radius: 3px;
+    color: #F4721E;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    width: 100%;
+    padding: 3px 5px;
+    text-align: right;
+    outline: none;
+  }
+
+  .input-number:focus { border-color: #F4721E; }
+
+  .input-unit {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #5A7A9A;
+    text-align: left;
+  }
+
+  .select-input {
+    background: #050B17;
+    border: 1px solid #1E3050;
+    border-radius: 3px;
+    color: #C8D8E8;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 8px;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .select-input:focus { border-color: #F4721E; }
+
+  .launch-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    background: #F4721E;
+    color: #03070F;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    width: 100%;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .launch-btn:hover {
+    background: #FF8C3A;
+    box-shadow: 0 0 18px rgba(244,114,30,0.45);
+  }
+
+  .launch-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .badge-stable {
+    background: rgba(0,220,100,0.12);
+    border: 1px solid rgba(0,220,100,0.35);
+    color: #00DC64;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  .badge-marginal {
+    background: rgba(255,193,7,0.12);
+    border: 1px solid rgba(255,193,7,0.35);
+    color: #FFC107;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  .badge-unstable {
+    background: rgba(255,60,60,0.12);
+    border: 1px solid rgba(255,60,60,0.35);
+    color: #FF3C3C;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  .tab-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: #4A6A8A;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab-btn.active { color: #F4721E; border-bottom-color: #F4721E; }
+  .tab-btn:hover:not(.active) { color: #C8D8E8; }
+
+  .section-divider {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #4A6A8A;
+    text-transform: uppercase;
+    border-top: 1px solid #162035;
+    padding-top: 10px;
+    margin-bottom: 8px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .blink { animation: blink 1.5s ease-in-out infinite; }
+}
