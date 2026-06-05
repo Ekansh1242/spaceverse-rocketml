@@ -122,7 +122,7 @@ const App: React.FC = () => {
         alignItems: 'center',
       }}>
         <div style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '9px', color: '#2A3550', letterSpacing: '0.15em' }}>
-          © SPACEVERSE TECHNOLOGIES PVT LTD — ROCKETML 3.0
+          © SPACEVERSE TECHNOLOGIES PVT LTD — ROCKETML
         </div>
         <div style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '11px', color: '#2A3550' }}>
           Physics-Informed · Barrowman Stability · RK45 Trajectory
