@@ -4,28 +4,11 @@ const LOGO_B64 = "data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BS
 
 const Header: React.FC = () => {
   const [time, setTime] = useState(new Date());
-  const [status, setStatus] = useState<'online'|'offline'|'checking'>('checking');
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(t);
   }, []);
-
-  useEffect(() => {
-    const check = async () => {
-      try {
-        const res = await fetch('/health');
-        setStatus(res.ok ? 'online' : 'offline');
-      } catch {
-        setStatus('offline');
-      }
-    };
-    check();
-    const i = setInterval(check, 10000);
-    return () => clearInterval(i);
-  }, []);
-
-  const statusColor = status === 'online' ? '#00DC64' : status === 'offline' ? '#FF3C3C' : '#FFD700';
 
   return (
     <header style={{
@@ -68,21 +51,7 @@ const Header: React.FC = () => {
         }}>
           {time.toLocaleTimeString('en-GB', { hour12: false })}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-          <div style={{
-            width: '8px', height: '8px', borderRadius: '50%',
-            background: statusColor,
-            boxShadow: `0 0 6px ${statusColor}`,
-          }} />
-          <span style={{
-            fontFamily: 'Orbitron, sans-serif',
-            fontSize: '9px',
-            color: statusColor,
-            letterSpacing: '0.18em',
-          }}>
-            {status.toUpperCase()}
-          </span>
-        </div>
+
       </div>
     </header>
   );
